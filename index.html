@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Comments</title>
+</head>
+
+<body>
+    <div class="content">
+        <h3>comment1</h3>
+        <button class="js-up">up</button><span></span>
+        <button class="js-down">down</button><span></span>
+    </div>
+    <div class="content">
+        <h3>comment2</h3>
+        <button class="js-up">up</button><span></span>
+        <button class="js-down">down</button><span></span>
+    </div>
+    <div class="content">
+        <h3>comment3</h3>
+        <button class="js-up">up</button><span></span>
+        <button class="js-down">down</button><span></span>
+    </div>
+    <div class="content">
+        <h3>comment4</h3>
+        <button class="js-up">up</button><span></span>
+        <button class="js-down">down</button><span></span>
+    </div>
+    <div class="content">
+        <h3>comment5</h3>
+        <button class="js-up">up</button><span></span>
+        <button class="js-down">down</button><span></span>
+    </div>
+    <style>
+        .content,
+        span {
+            margin: 2px;
+            padding: 5px;
+            border: 1px solid #a3a3a3;
+        }
+        
+        button {
+            margin: 4px;
+            padding: 5px;
+        }
+
+    </style>
+    <script>
+        function down(e) { //event parameter
+            let cmDownVal = e.target.nextElementSibling.innerHTML; //event.target (item that fired the event like this) find next sibling
+            cmDownVal--;
+            e.target.nextElementSibling.innerHTML = cmDownVal; //event.target
+        }; // end of down count function 
+
+        function up(e) { //event parameter
+            let cmUpVal = e.target.nextElementSibling.innerHTML; //event.target (item that fired the event like this) find next sibling
+            cmUpVal++;
+            e.target.nextElementSibling.innerHTML = cmUpVal; //event.target
+        }; // end of up count function 
+
+
+        let comments = document.getElementsByClassName('content');
+
+        for (let i = 0; i < comments.length; i++) {
+            comments[i].querySelector('.js-up').addEventListener('click', function(e) { //add event listener to up button and call anonymous function and pass the event
+                up(e); // call up count function and pass the event
+            });
+            comments[i].querySelector('.js-down').addEventListener('click', function(e) { //add event listener to down button and call anonymous function and pass the event
+                down(e); // call down count function and pass the event
+            });
+        };
+
+    </script>
+</body>
+
+</html>
